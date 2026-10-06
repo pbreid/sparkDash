@@ -86,6 +86,7 @@ export class MqttPublisher {
         const body = {};
         if (cpuC !== null) body.cpu_c = cpuC;
         if (gpuC !== null) body.gpu_c = gpuC;
+        if (typeof s?.online === "boolean") body.online = s.online;
         if (cpuUsage !== null) body.cpu_usage = cpuUsage;
         if (gpuUsage !== null) body.gpu_usage = gpuUsage;
         if (powerW !== null) body.power_w = powerW;
