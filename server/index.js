@@ -256,6 +256,7 @@ const registry = new SparkRegistry();
 // ─── MQTT fan-controller publisher (sparkfan) ────────────
 // Configured from the Settings UI (server/settings.js). Env MQTT_URL acts as a
 // one-time bootstrap seed for backwards compatibility.
+loadSettings(); // must precede getSettings() here; main loadSettings() call happens later in startup
 function mqttPublisherFromSettings() {
   const s = getSettings();
   if (!s.mqttEnabled || !s.mqttUrl) return null;
